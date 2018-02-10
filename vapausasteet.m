@@ -10,12 +10,12 @@ Omega_unid=[1 1 2 3 4 5 6 8 9 11 14].';
 table(Kvantit,Omega_id,Omega_unid)
 
 plot(Kvantit,Omega_id)
-title('Identifioidut vapausasteet kvanttien m‰‰r‰n funktiona')
+title('Identifioidut vapausasteet kvanttien maaran funktiona')
 xlabel('kvantit')
 ylabel('vapausasteet')
 
 figure
 plot(kvantit,Omega_unid)
-title('Identifioitumattomat vapausasteet kvanttien m‰‰r‰n funktiona')
+title('Identifioitumattomat vapausasteet kvanttien maaran funktiona')
 xlabel('kvantit')
 ylabel('vapausasteet')
