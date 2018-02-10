@@ -1,9 +1,9 @@
-% Termo LH10 tehtävä 3 - Santeri Saariokari
+% Termo LH10 tehtava 3 - Santeri Saariokari
 clear all
 syms t k
 format short
 figure
-% Piirretään kuva funktiosta
+% Piirretaan kuva funktiosta
 v=linspace(0.6,2.5);
 p=(8*0.95)./(3.*v-1)-3./(v.^2);
 plot(v,p)
@@ -13,7 +13,7 @@ axis([0 2.5 0.6 0.9])
 pf(t)=(8*0.95)./(3.*t-1)-3./(t.^2);
 
 % Muodostetaan kolme x:n arvoa jolla saadaan sama y kuin muttujalla alaraja
-% Lähdetään liikkeelle arvauksella 0.68
+% Lahdetaan liikkeelle arvauksella 0.68
 alaraja=0.68;
 assume(k>0.65);
 assume(k<3);
@@ -23,13 +23,13 @@ x=double(solve((8*0.95)./(3.*k-1)-3./(k.^2)-pf(alaraja)));
 keski=x(2);
 ylaraja=x(3);
 
-% Ensimmäinen pinta-ala on suorakaide - integraali
+% Ensimmainen pinta-ala on suorakaide - integraali
 A1=(keski-alaraja)*pf(alaraja)-double(int(pf,alaraja,keski));
 
 % Toinen pinta-ala on integraali - suorakaide
 A2=double(int(pf,keski,ylaraja))-(ylaraja-keski)*pf(keski);
 
-% Etsitään nyt numeerisesti raja, jolloin A1=A2, ts. A1-A2=0 (lähes)
+% Etsitaan nyt numeerisesti raja, jolloin A1=A2, ts. A1-A2=0 (lahes)
 tic
 while(A1-A2)>0,
     alaraja=alaraja+0.0001;
@@ -40,7 +40,7 @@ while(A1-A2)>0,
     ylaraja=x(3);
 end
 toc
-% Piirretään apuviiva ja -pisteet
+% Piirretaan apuviiva ja -pisteet
 hold on;
 plot(x,pf(x),'r*')
 line([0 2.5],[pf(alaraja) pf(alaraja)]);
