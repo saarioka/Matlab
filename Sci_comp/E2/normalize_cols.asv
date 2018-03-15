@@ -1,0 +1,4 @@
+function A = normalize_cols(A, p)
+for c= 1:
+A(:, )
+end
