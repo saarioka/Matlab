@@ -6,13 +6,7 @@ end
 
 fid = fopen(filename);
 
-s = []
-
-while 1
-    tline = fgetl(fid);
-    if ~ischar(tline), break, end
-        s = [s tline];
-end
+s = textscan(fid,'%s')
 
 fclose(fid);
 
