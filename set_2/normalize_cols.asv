@@ -1,0 +1,4 @@
+
+function A = normalize_cols(A, p)
+normi = norm(A())
+s = arrayfun(@norm, p);
