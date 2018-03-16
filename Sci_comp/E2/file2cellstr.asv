@@ -8,14 +8,13 @@ end
 
 fid = fopen(filename);
 
-s = cell(0,1);
+s = cell(0,1)
 
 while 1
     tline = fgetl(fid);
     if ~ischar(tline), break, end
-    if ~isempty(tline)
+    if ~isempty(tline
         s{end+1,1} = tline;
-    end
 end
 
 fclose(fid);
