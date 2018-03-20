@@ -1,0 +1,37 @@
+function x = cantor(x, n)
+% Computes the nth approximation to the Cantor function
+
+assert(n>0, 'n must be positive')
+assert(round(n) == n, 'n must be an integer')
+
+y=x;
+for i=1:length(x)
+    x = cantor_aux(x, i);
+end
+
+end
+
+function x = cantor_aux(x, n)
+% used in cantor(x, n)
+
+if (n == 0)
+    disp('n on nolla');
+    
+elseif (0 < x && x < 1/3)
+    disp('yks');
+    x = 1/2.*cantor_aux(3*x, n-1);
+        
+elseif (1/3 <= x && x < 2/3)
+    x = 1/2;
+    disp('kaks');
+        
+elseif (2/3 <= x && x < 1)
+    x = 1/2 + 1/2.*cantor_aux(3.*x-2, n-1);
+    disp('kolme');
+        
+else
+    disp([x  ' is not a valid argument']);
+    
+end
+
+end

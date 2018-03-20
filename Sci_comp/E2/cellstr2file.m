@@ -12,10 +12,8 @@ assert(iscellstr(strings),'Strings must be a cell array of strings')
 
 fid = fopen(filename, 'w');
 
-for i = 1:(size(strings,2)-1)
-    disp(strings(i))
-    fprintf(fid, '%s', strings(i));
-    fprintf(fid, '\n');
+for i = 1:(size(strings,2))
+    fprintf(fid, '%s\n', strings{i});
 end
 
 fclose(fid);
