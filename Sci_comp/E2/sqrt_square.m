@@ -1,6 +1,5 @@
 function x = sqrt_square(x, n)
-% SQRT_SQUARE takes square root of x n times and
-% squares it n times
+% SQRT_SQUARE takes square root of x n times and squares it n times
 
     assert(all(all(x>=0)>=0), 'x must be positive')
     
