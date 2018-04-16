@@ -4,16 +4,22 @@ classdef DiscreteDistribution
             mustSumTo1}
     end
     methods
+        function obj = DiscreteDistribution(p)
+            
+        end
+        
         function A = random(obj, varargin)
-            u = rand;
+            u = rand(obj, varargin);
             A = zeros(varargin{:});
+            cumulative = cumsum(p);
             for k = 1:numel(A)
-                cumulative = cumsum(p);
+                cumulative = cumsum(p(1:k));
             end
         end
     end
 end
 
+% todo
 function rval = mustSumTo1(p)
    psum = sum(p(:));
    if abs(psum-1) < numel(p)*eps
