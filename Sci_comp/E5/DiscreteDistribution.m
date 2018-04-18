@@ -32,6 +32,7 @@ classdef DiscreteDistribution
 end
 
 function mustSumTo1(sum)
+    % Checks that sum adds to 1
     if abs(sum-1) > eps
         error('Sum of probabilities must add to 1')
     end
