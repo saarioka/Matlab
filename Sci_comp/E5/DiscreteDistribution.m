@@ -1,30 +1,40 @@
 classdef DiscreteDistribution
-    properties
+    
+    properties (Access = public)
         P double {mustBeNonnegative, mustBeLessThanOrEqual(P,1),...
-            mustSumTo1}
+            mustBeReal}
     end
+    
+    properties (Access = private)
+        Cumulative double {mustSumTo1}
+    end
+    
     methods
+        
         function obj = DiscreteDistribution(p)
-            
+            % Constructs a distribution function with discrete distribution            
+            obj.P = p;
+            obj.Cumulative = cumsum(obj.P);
         end
         
         function A = random(obj, varargin)
-            u = rand(obj, varargin);
+            % Returns a matrix containing random integers with 
+            % discrete distribution
             A = zeros(varargin{:});
-            cumulative = cumsum(p);
             for k = 1:numel(A)
-                cumulative = cumsum(p(1:k));
+                u = rand;
+                A(k) = find(obj.Cumulative>=u, 1,'first');
             end
         end
+        
     end
+    
 end
 
-% todo
-function rval = mustSumTo1(p)
-   psum = sum(p(:));
-   if abs(psum-1) < numel(p)*eps
-       rval = true;
-   else
-       rval = false;
-   end
+function mustSumTo1(cum)
+     cum(end)
+%     disp(cum(end))
+%     if abs(cum(end)-1) > numel(cum)*eps
+%         error('Sum of probabilities must add to 1')
+%     end
 end

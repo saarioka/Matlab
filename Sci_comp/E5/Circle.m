@@ -2,9 +2,10 @@
 classdef Circle
     % Circle A class to represent circles.
      properties
-         Center(1,2) double {ismatrix } = [0 0];
-         Radius double {mustBePositive} = 1;
+         Center(1,2) double {ismatrix} = [0 0];
+         Radius double {mustBePositive, mustBeReal} = 1;
      end
+     
      methods
          % Constructor. Constructs a new circle.
          % Radius must be positive. 
@@ -27,14 +28,16 @@ classdef Circle
          end
          
          function h = plot(obj, varargin)
+             % Plots a given circle
              h = rectangle('Position', ...
                 [obj.Center-obj.Radius 2*obj.Radius 2*obj.Radius],...
                 'Curvature', [1 1], varargin{:});
-             axis equal;
          end
          
-         function rval = plus(a, b)
-             rval = Circle(a.Center + b.Center, a.Radius+b.Radius);
+         function sum = plus(a, b)
+             % adds radii and center of 2 circles and returns
+             % a handle to the created circle
+             sum = Circle(a.Center + b.Center, a.Radius+b.Radius);
          end
              
      end
