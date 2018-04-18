@@ -6,7 +6,7 @@ classdef DiscreteDistribution
     end
     
     properties (Access = private)
-        Cumulative double {mustSumTo1}
+        Cumulative {mustSumTo1}
     end
     
     methods
@@ -31,10 +31,8 @@ classdef DiscreteDistribution
     
 end
 
-function mustSumTo1(cum)
-     cum(end)
-%     disp(cum(end))
-%     if abs(cum(end)-1) > numel(cum)*eps
-%         error('Sum of probabilities must add to 1')
-%     end
+function mustSumTo1(sum)
+    if abs(sum-1) > eps
+        error('Sum of probabilities must add to 1')
+    end
 end
