@@ -1,0 +1,1 @@
+Q = [1/3*eye(2),1/2*eye(2);1/2*eye(2),eye(2)]; % Covariance matrix of state model
